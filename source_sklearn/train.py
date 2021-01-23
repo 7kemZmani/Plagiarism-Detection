@@ -42,9 +42,9 @@ if __name__ == '__main__':
     parser.add_argument('--data-dir', type=str, default=os.environ['SM_CHANNEL_TRAIN'])
     
     ## TODO: Add any additional arguments that you will need to pass into your model
-    parser.add_argument('--n-estimators', type=str, default=30)
-    parser.add_argument('--max-depth', type=str, default=10)
-    parser.add_argument('--learning-rate', type=str, default=1.0)
+    parser.add_argument('--n-estimators', type=int, default=30)
+    parser.add_argument('--max-depth', type=int, default=10)
+    parser.add_argument('--learning-rate', type=float, default=1.0)
     
     # args holds all passed-in arguments
     args = parser.parse_args()
