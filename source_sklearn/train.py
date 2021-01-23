@@ -42,6 +42,9 @@ if __name__ == '__main__':
     parser.add_argument('--data-dir', type=str, default=os.environ['SM_CHANNEL_TRAIN'])
     
     ## TODO: Add any additional arguments that you will need to pass into your model
+    parser.add_argument('--n-estimators', type=str, default=30)
+    parser.add_argument('--max-depth', type=str, default=10)
+    parser.add_argument('--learning-rate', type=str, default=1.0)
     
     # args holds all passed-in arguments
     args = parser.parse_args()
@@ -59,7 +62,7 @@ if __name__ == '__main__':
     
 
     ## TODO: Define a model 
-    model = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
+    model = GradientBoostingClassifier(n_estimators=args.n_estimators, learning_rate=args.learning_rate, max_depth=args.max_depth, random_state=0)
     
     
     ## TODO: Train the model
